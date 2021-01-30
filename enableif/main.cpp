@@ -4,14 +4,15 @@
 #include <type_traits>
 
 template <typename T>
-using EnableIfString = std::enable_if_t<std::is_convertible_v<T, std::string>>;
+concept ConvertibleToString = std::is_convertible_v<T, std::string>;
 
 class Person
 {
 private:
 	std::string name;
 public:
-	template<typename STR, typename = EnableIfString<STR>>
+	template<typename STR>
+	requires ConvertibleToString<STR>
 	explicit Person(STR&& n) : name(std::forward<STR>(n))
 	{
 		std::cout << "Template constuctor for " << name << '\n';

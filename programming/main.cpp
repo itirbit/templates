@@ -1,4 +1,4 @@
-#include "isprime11.hpp"
+#include "isprime14.hpp"
 #include <iostream>
 
 int main()

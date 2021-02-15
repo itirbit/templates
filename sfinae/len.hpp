@@ -8,7 +8,7 @@ std::size_t len(T(&)[N])
 }
 
 template<typename T>
-typename T::size_type len(T const& t)
+auto len(T const& t) -> decltype((void)(t.size()), T::size_type())
 {
 	return t.size();
 }

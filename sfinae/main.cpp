@@ -13,5 +13,8 @@ int main(int argc, char** argv)
 
 	int* p;
 	std::cout << len(p) << '\n';
+
+	std::allocator<int> x;
+	std::cout << len(x) << '\n';
 	return 0;
 }

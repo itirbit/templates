@@ -10,3 +10,9 @@ void foreach(Iter current, Iter end, Callable op, Args const& ... args)
 		++current;
 	}
 }
+
+template <typename Callable, typename... Args>
+decltype(auto) call(Callable& op, Args&& ... args)
+{
+	return std::invoke(std::forward<Callable>(op), std::forward<Args>(args)...);
+}
